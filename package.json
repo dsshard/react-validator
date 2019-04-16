@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "React fields validator",
   "main": "src/index.jsx",
+  "public": true,
   "keywords": [],
-  "author": "Dsshard",
+  "author": "dsshard",
   "scripts": {
     "start": "webpack-cli --watch --mode development",
     "build": "webpack-cli --mode production"
