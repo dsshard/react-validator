@@ -1,10 +1,13 @@
 {
   "name": "@coxy/react-validator",
   "version": "1.0.0",
-  "description": "React fields validator",
+  "description": "React forms Validator",
   "main": "build/index.js",
   "public": true,
-  "keywords": [],
+  "keywords": [
+    "React",
+    "React Validator"
+  ],
   "author": "dsshard",
   "scripts": {
     "start": "webpack-cli --watch --mode development",
