@@ -12,12 +12,12 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "react": ">=16.3.x",
+    "prop-types": ">=15.5.x"
   },
   "dependencies": {
-    "react": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "react": ">=16.3.x",
+    "prop-types": ">=15.5.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
