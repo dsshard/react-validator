@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React forms Validator",
   "main": "build/index.js",
-  "public": true,
+  "private": false,
   "keywords": [
     "React",
     "React Validator"
