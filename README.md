@@ -7,7 +7,7 @@ Need react **>=16.3**
 ## Example
 
 ``` javascript
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import ValidatorWrapper, { rules, ValidatorField } from '@coxy/react-validator';
 
 const validator = React.createRef();
@@ -26,20 +26,24 @@ export default () => {
 
   return (
     <ValidatorWrapper ref={validator}>
+
       <ValidatorField value={email} rules={rules.email}>
         {({ isValid, message }) => (
-          <Fragment>
+          <>
             <input value={email} onChange={({ target: { value } }) => handleChange(value)} />
             {!isValid && <div>{message}</div>}
-          </Fragment>
+          </>
         )}
       </ValidatorField>
+
       <ValidatorField value={email} rules={rules.email}>
         <input value={email} onChange={({ target: { value } }) => handleChange(value)} />
       </ValidatorField>
+
       <button onClick={handleSubmit} type="button">
         Submit
       </button>
+
     </ValidatorWrapper>
   );
 };
