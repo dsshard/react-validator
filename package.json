@@ -1,11 +1,11 @@
 {
   "name": "@coxy/react-validator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React forms Validator",
   "main": "build/index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/dsshard/react-validator.git"
+    "type": "git",
+    "url": "https://github.com/dsshard/react-validator.git"
   },
   "private": false,
   "keywords": [
