@@ -10,8 +10,8 @@
   ],
   "author": "dsshard",
   "scripts": {
-    "start": "webpack-cli --watch --mode development",
-    "build": "webpack-cli --mode production"
+    "start": "NODE_ENV=development && webpack-cli --watch --mode development",
+    "build": "NODE_ENV=production && webpack-cli --mode production"
   },
   "license": "MIT",
   "peerDependencies": {
