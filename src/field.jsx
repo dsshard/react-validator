@@ -12,7 +12,7 @@ export default class ValidationVield extends Component {
     id: PropTypes.string,
     rules: PropTypes.arrayOf(PropTypes.shape({
       message: PropTypes.string,
-      rule: PropTypes.number,
+      rule: PropTypes.func,
     })),
     required: PropTypes.bool,
     value: PropTypes.any.isRequired, // eslint-disable-line
