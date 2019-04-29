@@ -74,6 +74,7 @@ Default rules:
 
 **props:**
 - ref
+- stopAtFirstError
 
 
 #### ValidatorField

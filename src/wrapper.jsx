@@ -5,6 +5,11 @@ import Context from './context';
 export default class ValidatorWrapper extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    stopAtFirstError: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    stopAtFirstError: false,
   }
 
   componentWillMount() {
@@ -24,8 +29,20 @@ export default class ValidatorWrapper extends Component {
   getField = id => this.fields.find(field => field.props.id === id) || null
 
   validate = () => {
-    const statuses = this.fields.map(field => field.validate());
-    const errors = statuses.filter(instance => instance.isValid === false);
+    const { stopAtFirstError } = this.props;
+    let prevResult;
+    const statuses = this.fields.map((field) => {
+      if (stopAtFirstError && prevResult && prevResult.isValid === false) {
+        return null;
+      }
+      prevResult = field.validate();
+      return prevResult;
+    });
+
+    const errors = statuses
+      .filter(instance => instance)
+      .filter(instance => instance.isValid === false);
+
     if (errors.length) {
       return Object.assign(errors[0], {
         errors,
