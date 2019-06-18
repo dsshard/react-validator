@@ -8,19 +8,21 @@ export default class ValidationVield extends Component {
     children: PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.func,
-    ]).isRequired,
+    ]),
     id: PropTypes.string,
     rules: PropTypes.arrayOf(PropTypes.shape({
       message: PropTypes.string,
       rule: PropTypes.func,
     })),
     required: PropTypes.bool,
-    value: PropTypes.any.isRequired, // eslint-disable-line
+    value: PropTypes.any, // eslint-disable-line
   }
 
   static defaultProps = {
     rules: [],
+    children: null,
     required: true,
+    value: undefined,
     id: '',
   }
 
