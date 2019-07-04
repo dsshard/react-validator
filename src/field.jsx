@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
-
-export default class ValidationVield extends Component {
+class ValidationField extends Component {
   static propTypes = {
+    // from context
+    registerField: PropTypes.func.isRequired,
+    unregisterField: PropTypes.func.isRequired,
+
+
     children: PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.func,
@@ -24,6 +28,16 @@ export default class ValidationVield extends Component {
     required: true,
     value: undefined,
     id: '',
+  }
+
+  componentWillMount() {
+    const { registerField } = this.props;
+    registerField(this);
+  }
+
+  componentWillUnmount() {
+    const { unregisterField } = this.props;
+    unregisterField(this);
   }
 
   validate = () => {
@@ -56,16 +70,19 @@ export default class ValidationVield extends Component {
   render() {
     const { children, value } = this.props;
     const validity = this.validate();
-    const isFunction = typeof children === 'function';
-    return (
-      <Context.Consumer>
-        {(data) => {
-          if (data.registerField) {
-            data.registerField(this);
-          }
-          return (isFunction ? children(validity, value) : children);
-        }}
-      </Context.Consumer>
-    );
+    return (typeof children === 'function' ? children(validity, value) : children);
   }
 }
+
+
+export default props => (
+  <Context.Consumer>
+    {data => (
+      <ValidationField
+        {...props}
+        registerField={data.registerField}
+        unregisterField={data.unregisterField}
+      />
+    )}
+  </Context.Consumer>
+);

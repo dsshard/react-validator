@@ -26,6 +26,13 @@ export default class ValidatorWrapper extends Component {
     }
   }
 
+  unregisterField = (field) => {
+    const index = this.fields.indexOf(field);
+    if (field && index > -1) {
+      this.fields.splice(index, 1);
+    }
+  }
+
   getField = id => this.fields.find(field => field.props.id === id) || null
 
   validate = () => {
@@ -52,10 +59,10 @@ export default class ValidatorWrapper extends Component {
   }
 
   render() {
-    const { registerField } = this;
+    const { registerField, unregisterField } = this;
     const { children } = this.props;
     return (
-      <Context.Provider value={{ registerField }}>
+      <Context.Provider value={{ registerField, unregisterField }}>
         {children}
       </Context.Provider>
     );
