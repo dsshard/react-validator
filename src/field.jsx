@@ -1,35 +1,10 @@
+/* eslint react/jsx-props-no-spreading: [0] */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
 class ValidationField extends Component {
-  static propTypes = {
-    // from context
-    registerField: PropTypes.func.isRequired,
-    unregisterField: PropTypes.func.isRequired,
-
-
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.func,
-    ]),
-    id: PropTypes.string,
-    rules: PropTypes.arrayOf(PropTypes.shape({
-      message: PropTypes.string,
-      rule: PropTypes.func,
-    })),
-    required: PropTypes.bool,
-    value: PropTypes.any, // eslint-disable-line
-  }
-
-  static defaultProps = {
-    rules: [],
-    children: null,
-    required: true,
-    value: undefined,
-    id: '',
-  }
-
   componentWillMount() {
     const { registerField } = this.props;
     registerField(this);
@@ -75,9 +50,9 @@ class ValidationField extends Component {
 }
 
 
-export default props => (
+export default (props) => (
   <Context.Consumer>
-    {data => (
+    {(data) => (
       <ValidationField
         {...props}
         registerField={data.registerField}
@@ -86,3 +61,30 @@ export default props => (
     )}
   </Context.Consumer>
 );
+
+ValidationField.propTypes = {
+  // from context
+  registerField: PropTypes.func.isRequired,
+  unregisterField: PropTypes.func.isRequired,
+
+
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
+  id: PropTypes.string,
+  rules: PropTypes.arrayOf(PropTypes.shape({
+    message: PropTypes.string,
+    rule: PropTypes.func,
+  })),
+  required: PropTypes.bool,
+  value: PropTypes.any, // eslint-disable-line
+};
+
+ValidationField.defaultProps = {
+  rules: [],
+  children: null,
+  required: true,
+  value: undefined,
+  id: '',
+};

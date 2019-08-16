@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
-export default class ValidatorWrapper extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    stopAtFirstError: PropTypes.bool,
-  }
-
-  static defaultProps = {
-    stopAtFirstError: false,
-  }
-
+class ValidatorWrapper extends Component {
   componentWillMount() {
     this.fields = [];
   }
@@ -33,7 +24,7 @@ export default class ValidatorWrapper extends Component {
     }
   }
 
-  getField = id => this.fields.find(field => field.props.id === id) || null
+  getField = (id) => this.fields.find((field) => field.props.id === id) || null
 
   validate = () => {
     const { stopAtFirstError } = this.props;
@@ -47,8 +38,8 @@ export default class ValidatorWrapper extends Component {
     });
 
     const errors = statuses
-      .filter(instance => instance)
-      .filter(instance => instance.isValid === false);
+      .filter((instance) => instance)
+      .filter((instance) => instance.isValid === false);
 
     if (errors.length) {
       return Object.assign(errors[0], {
@@ -68,3 +59,15 @@ export default class ValidatorWrapper extends Component {
     );
   }
 }
+
+
+ValidatorWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  stopAtFirstError: PropTypes.bool,
+};
+
+ValidatorWrapper.defaultProps = {
+  stopAtFirstError: false,
+};
+
+export default ValidatorWrapper;
