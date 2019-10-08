@@ -1,13 +1,15 @@
+/* eslint react/sort-comp: [0], camelcase: [0] */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
 class ValidatorWrapper extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.fields = [];
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     this.fields = [];
   }
 

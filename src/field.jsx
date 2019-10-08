@@ -1,19 +1,20 @@
-/* eslint react/jsx-props-no-spreading: [0] */
+/* eslint react/jsx-props-no-spreading: [0], react/sort-comp: [0], camelcase: [0] */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
 class ValidationField extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillUnmount() {
+    const { unregisterField } = this.props;
+    unregisterField(this);
+  }
+
+  UNSAFE_componentWillMount() {
     const { registerField } = this.props;
     registerField(this);
   }
 
-  componentWillUnmount() {
-    const { unregisterField } = this.props;
-    unregisterField(this);
-  }
 
   validate = () => {
     let isValid = true;
