@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Context from './context';
 
 class ValidationField extends Component {
-  UNSAFE_componentWillUnmount() {
+  componentWillUnmount() {
     const { unregisterField } = this.props;
     unregisterField(this);
   }

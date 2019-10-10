@@ -9,7 +9,7 @@ class ValidatorWrapper extends Component {
     this.fields = [];
   }
 
-  UNSAFE_componentWillUnmount() {
+  componentWillUnmount() {
     this.fields = [];
   }
 
