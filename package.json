@@ -16,6 +16,7 @@
   "scripts": {
     "start": "NODE_ENV=development && webpack-cli --watch --mode development",
     "build": "NODE_ENV=production && webpack-cli --mode production",
+    "coverage": "codecov",
     "test": "jest ."
   },
   "license": "MIT",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.10.5",
+    "codecov": "^3.7.2",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-env": "7.10.4",
     "@babel/preset-react": "7.10.4",
