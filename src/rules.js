@@ -7,12 +7,10 @@ export default {
     message: 'Value is required',
   }],
 
-
   bool: [{
     rule: (value) => !!value,
     message: 'Required value',
   }],
-
 
   password: [{
     rule: (value) => value.length > 0,
@@ -21,19 +19,6 @@ export default {
     rule: (value) => value.length > 5,
     message: 'Password field can not be less than 6 characters',
   }],
-
-
-  repeatPassword: (currentPassword) => [{
-    rule: (value) => value.length > 0,
-    message: 'Password field cannot be empty',
-  }, {
-    rule: (value) => value.length > 5,
-    message: 'Password field can not be less than 6 characters',
-  }, {
-    rule: (value) => value === currentPassword,
-    message: 'Passwords do not match',
-  }],
-
 
   email: [{
     rule: (value) => value !== '' && value.length !== 0,

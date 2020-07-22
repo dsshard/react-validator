@@ -1,5 +1,3 @@
 import React from 'react';
 
-const ContextProvider = React.createContext('Validator');
-
-export default ContextProvider;
+export default React.createContext('@coxy/Validator');

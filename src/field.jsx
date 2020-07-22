@@ -1,20 +1,16 @@
 /* eslint react/jsx-props-no-spreading: [0], react/sort-comp: [0], camelcase: [0] */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
 
 class ValidationField extends Component {
   componentWillUnmount() {
-    const { unregisterField } = this.props;
-    unregisterField(this);
+    this.props.unregisterField(this);
   }
 
-  UNSAFE_componentWillMount() {
-    const { registerField } = this.props;
-    registerField(this);
+  componentDidMount() {
+    this.props.registerField(this);
   }
-
 
   validate = () => {
     let isValid = true;
@@ -50,7 +46,6 @@ class ValidationField extends Component {
   }
 }
 
-
 export default (props) => (
   <Context.Consumer>
     {(data) => (
@@ -68,16 +63,16 @@ ValidationField.propTypes = {
   registerField: PropTypes.func.isRequired,
   unregisterField: PropTypes.func.isRequired,
 
-
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.func,
   ]),
-  id: PropTypes.string,
   rules: PropTypes.arrayOf(PropTypes.shape({
     message: PropTypes.string,
     rule: PropTypes.func,
   })),
+
+  id: PropTypes.string,
   required: PropTypes.bool,
   value: PropTypes.any, // eslint-disable-line
 };
