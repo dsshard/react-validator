@@ -1,5 +1,11 @@
 ### React Validator
 
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![Travis CI](https://travis-ci.org/dsshard/react-validator.svg?branch=master)](https://travis-ci.org/tterb/yt2mp3)
+[![CodeCov](https://codecov.io/gh/dsshard/react-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/tterb/yt2mp3)
+[![GitHub Release](https://img.shields.io/github/release/dsshard/react-validator.svg?style=flat)]()  
+
+
 Simple react forms validation.
 
 Need react **>=16.3**
