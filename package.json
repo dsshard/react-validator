@@ -17,7 +17,7 @@
     "start": "NODE_ENV=development && webpack-cli --watch --mode development",
     "build": "NODE_ENV=production && webpack-cli --mode production",
     "coverage": "codecov",
-    "test": "jest ."
+    "test": "jest"
   },
   "license": "MIT",
   "peerDependencies": {
