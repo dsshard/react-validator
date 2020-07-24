@@ -2,7 +2,8 @@
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/dsshard/react-validator/blob/master/LICENSE)
 [![Travis CI](https://travis-ci.org/dsshard/react-validator.svg?branch=master)](https://travis-ci.org/dsshard/react-validator)
-[![CodeCov](https://codecov.io/gh/dsshard/react-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/tterb/yt2mp3)
+[![CodeCov](https://codecov.io/gh/dsshard/react-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/dsshard/react-validator)
+[![Coverage Status](https://coveralls.io/repos/github/dsshard/react-validator/badge.svg?branch=master)](https://coveralls.io/github/dsshard/react-validator?branch=master)
 [![GitHub Release](https://img.shields.io/github/release/dsshard/react-validator.svg?style=flat)]()  
 
 
