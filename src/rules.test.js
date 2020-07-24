@@ -79,9 +79,6 @@ it('check rule min', () => {
 });
 
 it('check rule max', () => {
-  expect(rules.max(1).length).toBe(1);
-  expect(typeof rules.max).toBe('function');
-
   let result = null;
   result = rules.max(10)[0].rule('');
   expect(result).toBe(false);
@@ -106,9 +103,6 @@ it('check rule max', () => {
 });
 
 it('check rule length', () => {
-  expect(rules.length(10).length).toBe(2);
-  expect(typeof rules.length).toBe('function');
-
   let result = null;
   result = rules.length(1)[0].rule('');
   expect(result).toBe(false);

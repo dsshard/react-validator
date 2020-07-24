@@ -64,7 +64,7 @@ it('check getField undefined field', () => {
   act(() => {
     render((
       <ValidatorWrapper ref={validator}>
-        <ValidatorField rules={[]} id="test" />
+        <ValidatorField rules={[]} id="test-empty-field" />
       </ValidatorWrapper>
     ), container);
   });
@@ -97,7 +97,7 @@ it('check unregisterField, registerField', () => {
   act(() => {
     render((
       <ValidatorWrapper ref={validator}>
-        <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} id="test-register-field" />
       </ValidatorWrapper>
     ), container);
   });
@@ -117,7 +117,8 @@ it('check filed in field', () => {
     render((
       <ValidatorWrapper ref={validator}>
         <ValidatorField rules={[]}>
-          <ValidatorField rules={[]} />
+          <ValidatorField rules={[]} id="check-validate-field-1" />
+          <ValidatorField rules={[]} id="check-validate-field-2" />
         </ValidatorField>
       </ValidatorWrapper>
     ), container);

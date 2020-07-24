@@ -4,6 +4,7 @@
 [![Travis CI](https://travis-ci.org/dsshard/react-validator.svg?branch=master)](https://travis-ci.org/dsshard/react-validator)
 [![CodeCov](https://codecov.io/gh/dsshard/react-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/dsshard/react-validator)
 [![Coverage Status](https://coveralls.io/repos/github/dsshard/react-validator/badge.svg?branch=master)](https://coveralls.io/github/dsshard/react-validator?branch=master)
+[![dependencies Status](https://david-dm.org/dsshard/react-validator/status.svg)](https://david-dm.org/dsshard/react-validator)
 [![GitHub Release](https://img.shields.io/github/release/dsshard/react-validator.svg?style=flat)]()  
 
 
