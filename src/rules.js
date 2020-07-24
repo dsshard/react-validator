@@ -9,7 +9,7 @@ export default {
 
   bool: [{
     rule: (value) => !!value,
-    message: 'Required value',
+    message: 'Value is required',
   }],
 
   password: [{
@@ -26,5 +26,23 @@ export default {
   }, {
     rule: (value) => emailReg.test(String(value).toLowerCase()),
     message: 'Email is invalid',
+  }],
+
+  min: (min) => [{
+    rule: (value) => parseFloat(value) > min,
+    message: `The value must be greater than ${min}`,
+  }],
+
+  max: (max) => [{
+    rule: (value) => parseFloat(value) < max,
+    message: `The value must be smaller ${max}`,
+  }],
+
+  length: (min, max) => [{
+    rule: (value) => String(value).length >= min,
+    message: `No less than ${min} symbols`,
+  }, {
+    rule: (value) => (max !== undefined ? String(value).length <= max : true),
+    message: `No more than ${max} symbols`,
   }],
 };

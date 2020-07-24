@@ -9,8 +9,10 @@
   },
   "private": false,
   "keywords": [
-    "React",
-    "React Validator"
+    "react",
+    "react validator",
+    "form validation",
+    "react-component"
   ],
   "author": "dsshard",
   "scripts": {

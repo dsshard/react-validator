@@ -46,6 +46,9 @@ export default () => {
         <input value={email} onChange={({ target: { value } }) => handleChange(value)} />
       </ValidatorField>
 
+      {/* This is also possible :) */}
+      <ValidatorField value={email} rules={rules.email} />
+
       <button onClick={handleSubmit} type="button">
         Submit
       </button>
@@ -56,6 +59,9 @@ export default () => {
 ```
 
 ### Rules
+
+You can create your own rules for validation, with your own error messages
+
 
 ``` javascript
 const rules = {
@@ -69,23 +75,37 @@ const rules = {
 }
 ```
 
-Default rules:
-- email
-- notEmpty
+This component has a default set of rules that you can use right away:
+
+| ****name**** | **Type** | **description**                                                         |
+|--------------|----------|-------------------------------------------------------------------------|
+| email        |          | Check email for empty string and regexp                                 |
+| password     |          | Check password for empty string and length                              |
+| notEmpty     |          | Check if the string is not empty                                        |
+| boolean      |          | Will check that the value is present                                    |
+| min          | function | min\(3\) \-> Check the number                                           |
+| max          | function | max\(5\) \-> Check the number                                           |
+| length       | function | length\(3, 5\) \-> Check string length \(second parameter is optional\) |
+
 
 
 ### Api
 
 #### ValidatorWrapper
 
-**props:**
-- ref
-- stopAtFirstError
+ **name**         | **default** | **required** | **description**                                        
+------------------|-------------|--------------|--------------------------------------------------------
+ ref              | null        | no           | React\.ref or useRef                                   
+ stopAtFirstError | false       | no           | The validator will stop checking after the first error       
+
 
 
 #### ValidatorField
 
-**props:**
-- value
-- rules
-- required (default: true)
+ ****name**** | ****default**** | ****required**** | **description**               
+--------------|-----------------|------------------|-------------------------------
+ value        | undefined       | yes              | Value for validation          
+ rules        | \\\[\\\]        | yes              | Array of rules for validation 
+ required     | true            | no               | The field will be required  
+
+

@@ -50,3 +50,81 @@ it('check rule notEmpty', () => {
   result = rules.notEmpty[0].rule('test');
   expect(result).toBe(true);
 });
+
+it('check rule min', () => {
+  expect(rules.min(1).length).toBe(1);
+  expect(typeof rules.min).toBe('function');
+
+  let result = null;
+  result = rules.min(10)[0].rule('');
+  expect(result).toBe(false);
+
+  result = rules.min(9)[0].rule('testtesttest');
+  expect(result).toBe(false);
+
+  result = rules.min(9)[0].rule('11');
+  expect(result).toBe(true);
+
+  result = rules.min(9)[0].rule(10);
+  expect(result).toBe(true);
+
+  result = rules.min(9)[0].rule('8');
+  expect(result).toBe(false);
+
+  result = rules.min(9)[0].rule(7);
+  expect(result).toBe(false);
+
+  result = rules.min(-1)[0].rule('');
+  expect(result).toBe(false);
+});
+
+it('check rule max', () => {
+  expect(rules.max(1).length).toBe(1);
+  expect(typeof rules.max).toBe('function');
+
+  let result = null;
+  result = rules.max(10)[0].rule('');
+  expect(result).toBe(false);
+
+  result = rules.max(9)[0].rule('testtesttest');
+  expect(result).toBe(false);
+
+  result = rules.max(9)[0].rule('11');
+  expect(result).toBe(false);
+
+  result = rules.max(9)[0].rule(10);
+  expect(result).toBe(false);
+
+  result = rules.max(9)[0].rule('5');
+  expect(result).toBe(true);
+
+  result = rules.max(9)[0].rule(5);
+  expect(result).toBe(true);
+
+  result = rules.max(-1)[0].rule('');
+  expect(result).toBe(false);
+});
+
+it('check rule length', () => {
+  expect(rules.length(10).length).toBe(2);
+  expect(typeof rules.length).toBe('function');
+
+  let result = null;
+  result = rules.length(1)[0].rule('');
+  expect(result).toBe(false);
+
+  result = rules.length(1)[0].rule('1');
+  expect(result).toBe(true);
+
+  result = rules.length(1, 10)[0].rule('testtesttest');
+  expect(result).toBe(true);
+
+  result = rules.length(1, 10)[1].rule('testtesttest');
+  expect(result).toBe(false);
+
+  result = rules.length(1, 10)[0].rule('lol');
+  expect(result).toBe(true);
+
+  result = rules.length(1, 10)[1].rule('lol');
+  expect(result).toBe(true);
+});
