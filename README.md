@@ -6,6 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/dsshard/react-validator/badge.svg?branch=master)](https://coveralls.io/github/dsshard/react-validator?branch=master)
 [![dependencies Status](https://david-dm.org/dsshard/react-validator/status.svg)](https://david-dm.org/dsshard/react-validator)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a30e71d313f2d8bdd6b1/maintainability)](https://codeclimate.com/github/dsshard/react-validator/maintainability)
+[![BundlePhobia](https://badgen.net/bundlephobia/minzip/@coxy/react-validator)](https://bundlephobia.com/result?p=@coxy/react-validator)
 [![GitHub Release](https://img.shields.io/github/release/dsshard/react-validator.svg?style=flat)]()  
 
 
