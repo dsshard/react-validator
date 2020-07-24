@@ -104,9 +104,11 @@ it('check unregisterField, registerField', () => {
 
   expect(typeof validator.current.registerField).toBe('function');
   expect(typeof validator.current.registerField(1)).toBe('undefined');
+  expect(typeof validator.current.registerField()).toBe('undefined');
 
   expect(typeof validator.current.unregisterField).toBe('function');
   expect(typeof validator.current.unregisterField(1)).toBe('undefined');
+  expect(typeof validator.current.unregisterField()).toBe('undefined');
 });
 
 it('check filed in field', () => {
