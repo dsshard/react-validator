@@ -31,6 +31,11 @@ it('check wrapper validator', () => {
     render((
       <ValidatorWrapper ref={validator}>
         <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} />
+        <ValidatorField rules={[]} />
       </ValidatorWrapper>
     ), container);
   });
@@ -45,6 +50,7 @@ it('check getField validator', () => {
     render((
       <ValidatorWrapper ref={validator}>
         <ValidatorField rules={[]} id="test" />
+        <ValidatorField rules={[]} id="test-fields" />
       </ValidatorWrapper>
     ), container);
   });
