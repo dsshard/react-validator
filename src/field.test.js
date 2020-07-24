@@ -83,3 +83,25 @@ it('check success validation', () => {
   expect(validateResult.isValid).toBe(true);
   expect(validateResult.message).toBe('');
 });
+
+it('check success validation fot child function', () => {
+  const validator = React.createRef();
+  act(() => {
+    render((
+      <ValidatorWrapper ref={validator}>
+        <ValidatorField rules={rules.email} value="email@email.com">
+          {({ isValid, message }) => (
+            <>
+              {!isValid && <div>{message}</div>}
+            </>
+          )}
+        </ValidatorField>
+      </ValidatorWrapper>
+    ), container);
+  });
+
+  const validateResult = validator.current.validate();
+
+  expect(validateResult.isValid).toBe(true);
+  expect(validateResult.message).toBe('');
+});

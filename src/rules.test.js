@@ -127,4 +127,10 @@ it('check rule length', () => {
 
   result = rules.length(1, 10)[1].rule('lol');
   expect(result).toBe(true);
+
+  result = rules.length(1)[1].rule('test undefined 2 param');
+  expect(result).toBe(true);
+
+  result = rules.length(10)[0].rule('tes');
+  expect(result).toBe(false);
 });
