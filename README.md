@@ -5,6 +5,7 @@
 [![CodeCov](https://codecov.io/gh/dsshard/react-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/dsshard/react-validator)
 [![Coverage Status](https://coveralls.io/repos/github/dsshard/react-validator/badge.svg?branch=master)](https://coveralls.io/github/dsshard/react-validator?branch=master)
 [![dependencies Status](https://david-dm.org/dsshard/react-validator/status.svg)](https://david-dm.org/dsshard/react-validator)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a30e71d313f2d8bdd6b1/maintainability)](https://codeclimate.com/github/dsshard/react-validator/maintainability)
 [![GitHub Release](https://img.shields.io/github/release/dsshard/react-validator.svg?style=flat)]()  
 
 
