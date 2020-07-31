@@ -14,9 +14,11 @@ Simple react forms validation.
 
 Need react **>=16.3**
 
-## Example
+# Example
 
-``` javascript
+See more examples [here](examples/example.jsx)
+
+```jsx
 import React, { useState } from 'react';
 import ValidatorWrapper, { rules, ValidatorField } from '@coxy/react-validator';
 
@@ -62,12 +64,14 @@ export default () => {
 };
 ```
 
-### Rules
+See more examples [here](examples/example.jsx)
+
+# Rules
 
 You can create your own rules for validation, with your own error messages
 
 
-``` javascript
+```javascript
 const rules = {
   email: [{
     rule: value => value !== '' && value.length > 0,
@@ -93,9 +97,9 @@ This component has a default set of rules that you can use right away:
 
 
 
-### Api
+# Api for React
 
-#### ValidatorWrapper
+#### ValidatorWrapper props
 
  **name**         | **default** | **required** | **description**                                        
 ------------------|-------------|--------------|--------------------------------------------------------
@@ -104,32 +108,86 @@ This component has a default set of rules that you can use right away:
 
 
 
-#### ValidatorField
+#### ValidatorField props
 
  ****name**** | ****default**** | ****required**** | **description**               
 --------------|-----------------|------------------|-------------------------------
  value        | undefined       | yes              | Value for validation          
- rules        | \\\[\\\]        | yes              | Array of rules for validation 
+ rules        | \[\]            | yes              | Array of rules for validation 
  required     | true            | no               | The field will be required  
+ id           | null            | no               | ID for get field  
 
 
-const validator = new Validator({ stopAtFirstError: false });
-validator.addField({
-    rules: [...rules.email],
-    value: email
-    required: true, 
+# Api for inline validation
+
+#### Validator constructor parameters
+
+ **name**         | **default** | **required** | **description**                                        
+------------------|-------------|--------------|--------------------------------------------------------                                   
+ stopAtFirstError | false       | no           | The validator will stop checking after the first error       
+
+#### Validator.addField()
+
+Adds a field for validation
+
+```javascript
+import { Validator } from '@coxy/react-validator';
+
+const validator = new Validator({ stopAtFirstError: true });
+const field = validator.addField({
+    rules: rules.password,
+    value: '',
+});
+```
+
+#### Validator.getField()
+
+Returns the field by ID
+
+```javascript
+import { Validator } from '@coxy/react-validator';
+
+const validator = new Validator({ stopAtFirstError: true });
+const field = validator.addField({
+    rules: rules.password,
+    value: '',
+    id: 'test-field-name'
+});
+console.log(validator.getField('test-field-name')) // Field Class
+```
+
+#### Validator.removeField()
+
+Removes a previously added field
+
+
+```javascript
+import { Validator } from '@coxy/react-validator';
+
+const validator = new Validator({ stopAtFirstError: true });
+const field = validator.addField({
+    rules: rules.password,
+    value: '',
+    id: 'test-field-name'
 });
 
-validator.addField({
-    rules: [...rules.password],
-    value: password
-    required: true, 
+validator.removeField(field);
+console.log(validator.getField('test-field-name')) // null
+```
+
+
+#### Validator.validate()
+
+Validates all added fields
+
+```javascript
+import { Validator } from '@coxy/react-validator';
+
+const validator = new Validator({ stopAtFirstError: true });
+const field = validator.addField({
+    rules: rules.password,
+    value: '',
 });
 
-validator.addField({
-    rules: [...rules.bool],
-    value: boolean
-    required: false, 
-})
-
-const result = validator.validate();
+console.log(validator.validate());
+```
