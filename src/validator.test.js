@@ -25,7 +25,8 @@ it('check normal add and remove fileds', () => {
   expect(typeof fieldSearchPassword.validate).toBe('function');
   expect(fieldPassword === fieldSearchPassword).toBe(true);
 
-  validator.removeField(fieldPassword);
+  const resultRemove = validator.removeField(fieldPassword);
+  expect(resultRemove).toBe(undefined);
 
   const newFieldSearchPassword = validator.getField('for-remove');
   expect(newFieldSearchPassword === null).toBe(true);
