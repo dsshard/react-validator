@@ -64,7 +64,7 @@ export default () => {
 };
 ```
 
-See more examples [here](examples/example.jsx)
+See more examples [here](example/example.jsx)
 
 # Rules
 
