@@ -28,6 +28,9 @@ it('check normal add and remove fileds', () => {
   const resultRemove = validator.removeField(fieldPassword);
   expect(resultRemove).toBe(undefined);
 
+  const resultRemoveUndefined = validator.removeField();
+  expect(resultRemoveUndefined).toBe(undefined);
+
   const newFieldSearchPassword = validator.getField('for-remove');
   expect(newFieldSearchPassword === null).toBe(true);
 });
