@@ -1,0 +1,64 @@
+/* eslint no-console: [0] */
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import ValidatorWrapper, { rules, ValidatorField, Validator } from '../src';
+
+function App() {
+  const [email, setEmail] = useState('');
+  const jsxValidator = React.createRef();
+
+  function handleValidateEmail() {
+    const { isValid, message, errors } = jsxValidator.current.validate();
+    if (!isValid) {
+      console.log(isValid, message, errors);
+      return;
+    }
+    console.log('success');
+  }
+
+  function handleValidateCustomFields() {
+    const validator = new Validator({ stopAtFirstError: true });
+    const fieldPassword = validator.addField({
+      rules: rules.password,
+      value: '',
+      id: 'for-remove',
+    });
+
+    const fieldSearchPassword = validator.getField('for-remove');
+    console.log(fieldPassword === fieldSearchPassword);
+
+    validator.removeField(fieldPassword);
+
+    validator.addField({
+      rules: rules.password,
+      value: 'testpassword',
+    });
+
+    const { isValid, message, errors } = validator.validate();
+    if (!isValid) {
+      console.log(isValid, message, errors);
+      return;
+    }
+    console.log('success');
+  }
+
+  return (
+    <>
+      <ValidatorWrapper ref={jsxValidator}>
+        <ValidatorField rules={rules.email} value={email}>
+          {({ isValid, message }) => (
+            <>
+              <input onChange={({ target: { value } }) => setEmail(value)} />
+              <div>{isValid ? 'valid' : 'invalid'}</div>
+              <div>{message || ''}</div>
+              <button onClick={handleValidateEmail} type="button">Validate email</button>
+            </>
+          )}
+        </ValidatorField>
+        <button onClick={handleValidateCustomFields} type="button">Validate custom fields</button>
+      </ValidatorWrapper>
+    </>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
+import Validator from './validator';
 
 class ValidatorWrapper extends Component {
   UNSAFE_componentWillMount() {
@@ -26,25 +27,11 @@ class ValidatorWrapper extends Component {
   getField = (id) => this.fields.find((field) => field.props.id === id) || null
 
   validate = () => {
-    let prevResult;
-    const statuses = this.fields.map((field) => {
-      if (this.props.stopAtFirstError && prevResult && prevResult.isValid === false) {
-        return null;
-      }
-      prevResult = field.validate();
-      return prevResult;
+    const validator = new Validator({ stopAtFirstError: this.props.stopAtFirstError });
+    this.fields.forEach((comp) => {
+      validator.addField(comp.props);
     });
-
-    const errors = statuses
-      .filter((inst) => inst)
-      .filter((inst) => inst.isValid === false);
-
-    if (errors.length) {
-      return Object.assign(errors[0], {
-        errors,
-      });
-    }
-    return { isValid: true, message: '' };
+    return validator.validate();
   }
 
   render() {

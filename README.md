@@ -113,3 +113,23 @@ This component has a default set of rules that you can use right away:
  required     | true            | no               | The field will be required  
 
 
+const validator = new Validator({ stopAtFirstError: false });
+validator.addField({
+    rules: [...rules.email],
+    value: email
+    required: true, 
+});
+
+validator.addField({
+    rules: [...rules.password],
+    value: password
+    required: true, 
+});
+
+validator.addField({
+    rules: [...rules.bool],
+    value: boolean
+    required: false, 
+})
+
+const result = validator.validate();

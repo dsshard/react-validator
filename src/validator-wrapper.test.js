@@ -5,8 +5,8 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import ValidatorWrapper from './wrapper';
-import ValidatorField from './field';
+import ValidatorWrapper from './validator-wrapper';
+import ValidatorField from './validator-field';
 import rules from './rules';
 
 let container = null;

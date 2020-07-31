@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Context from './context';
+import { Field } from './validator';
 
 class ValidationField extends Component {
   componentWillUnmount() {
@@ -13,30 +14,13 @@ class ValidationField extends Component {
   }
 
   validate = () => {
-    let isValid = true;
-    let message = '';
-    const {
-      rules,
-      value,
-      required,
-      id,
-    } = this.props;
-
-    const isEmptyValue = !value && parseFloat(value) !== 0;
-
-    if (!rules.length || (isEmptyValue && required === false)) {
-      return { isValid, message, id };
-    }
-
-    rules.forEach((instance) => {
-      if (isValid) {
-        isValid = instance.rule(value);
-        if (!isValid) {
-          ({ message } = instance);
-        }
-      }
+    const field = new Field({
+      rules: this.props.rules,
+      required: this.props.required,
+      value: this.props.value,
+      id: this.props.id,
     });
-    return { isValid, message, id };
+    return field.validate();
   }
 
   render() {
