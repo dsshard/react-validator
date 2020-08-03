@@ -1,3 +1,9 @@
+1.2.1 / 2020-08-3
+==================
+  * Fix Readme
+  * Update eslint
+  * Small fixes
+  
 1.2.0 / 2020-07-28
 ==================
   * Add new inline Validator API
