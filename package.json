@@ -1,7 +1,7 @@
 {
   "name": "@coxy/react-validator",
   "version": "1.2.0",
-  "description": "React forms Validator",
+  "description": "🚀 Simple validation form for React",
   "main": "build/index.js",
   "repository": {
     "type": "git",
@@ -11,9 +11,14 @@
   "keywords": [
     "react",
     "react validator",
+    "react component",
     "form validation",
-    "react component"
+    "validation",
+    "validator"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "author": "dsshard",
   "scripts": {
     "start": "NODE_ENV=development && webpack-cli --watch --mode development",
@@ -40,9 +45,9 @@
     "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
-    "codecov": "^3.7.2",
-    "coveralls": "^3.1.0",
-    "eslint": "7.5.0",
+    "codecov": "3.7.2",
+    "coveralls": "3.1.0",
+    "eslint": "7.6.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
