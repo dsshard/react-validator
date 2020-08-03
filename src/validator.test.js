@@ -9,7 +9,7 @@ it('check normal create validator', () => {
   expect(typeof validator.validate).toBe('function');
 });
 
-it('check normal add and remove fileds', () => {
+it('check normal add and remove fields', () => {
   const validator = new Validator({ stopAtFirstError: true });
   const fieldPassword = validator.addField({
     rules: rules.password,
