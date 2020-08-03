@@ -71,14 +71,11 @@ export default class Validator {
       return prevResult;
     });
 
-    const errors = statuses
-      .filter((inst) => inst)
-      .filter((inst) => inst.isValid === false);
+    const errors = statuses.filter((inst) => inst && inst.isValid === false);
 
     if (errors.length) {
-      return Object.assign(errors[0], {
-        errors,
-      });
+      const { isValid, message } = errors[0];
+      return { isValid, message, errors };
     }
     return { isValid: true, message: '' };
   }
