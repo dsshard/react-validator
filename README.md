@@ -16,7 +16,7 @@ Need react **>=16.3**
 
 # Example
 
-See more examples [here](examples/example.jsx)
+See more examples [here](example/example.jsx)
 
 ```jsx
 import React, { useState } from 'react';
