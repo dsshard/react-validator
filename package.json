@@ -16,9 +16,6 @@
     "validation",
     "validator"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "author": "dsshard",
   "scripts": {
     "start": "NODE_ENV=development && webpack-cli --watch --mode development",
