@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Context from './context';
 import { Field } from './validator';
 
-class ValidationField extends Component {
+class ValidationFieldWrapper extends Component {
   componentWillUnmount() {
     this.props.unregisterField(this);
   }
@@ -30,19 +30,21 @@ class ValidationField extends Component {
   }
 }
 
-export default (props) => (
-  <Context.Consumer>
-    {(data) => (
-      <ValidationField
-        {...props}
-        registerField={data.registerField}
-        unregisterField={data.unregisterField}
-      />
-    )}
-  </Context.Consumer>
-);
+export default function ValidationField(props) {
+  return (
+    <Context.Consumer>
+      {(data) => (
+        <ValidationFieldWrapper
+          {...props}
+          registerField={data.registerField}
+          unregisterField={data.unregisterField}
+        />
+      )}
+    </Context.Consumer>
+  );
+}
 
-ValidationField.propTypes = {
+ValidationFieldWrapper.propTypes = {
   // from context
   registerField: PropTypes.func.isRequired,
   unregisterField: PropTypes.func.isRequired,
@@ -61,7 +63,7 @@ ValidationField.propTypes = {
   value: PropTypes.any, // eslint-disable-line
 };
 
-ValidationField.defaultProps = {
+ValidationFieldWrapper.defaultProps = {
   rules: [],
   children: null,
   required: true,

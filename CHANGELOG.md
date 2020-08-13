@@ -1,3 +1,8 @@
+1.2.3 / 2020-08-13
+==================
+  * Update dependencies
+  * Fix rules order validation
+  
 1.2.1 / 2020-08-3
 ==================
   * Fix Readme
