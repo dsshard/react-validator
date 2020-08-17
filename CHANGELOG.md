@@ -1,3 +1,7 @@
+1.2.4 / 2020-08-13
+==================
+  * Fix rules order validation
+  
 1.2.3 / 2020-08-13
 ==================
   * Update dependencies

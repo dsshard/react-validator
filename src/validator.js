@@ -27,8 +27,7 @@ export class Field {
     if (!rules.length || (isEmptyValue && required === false)) {
       return { isValid, message, id };
     }
-    const reverseRules = rules.filter(() => true).reverse();
-    reverseRules.forEach((instance) => {
+    rules.forEach((instance) => {
       if (isValid) {
         isValid = instance.rule(value);
         if (!isValid) {
