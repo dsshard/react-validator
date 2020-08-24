@@ -35,7 +35,7 @@
     "react": ">=16.3.x"
   },
   "devDependencies": {
-    "@babel/core": "7.11.1",
+    "@babel/core": "7.11.4",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-env": "7.11.0",
     "@babel/preset-react": "7.10.4",
@@ -44,12 +44,12 @@
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "codecov": "3.7.2",
     "coveralls": "3.1.0",
-    "eslint": "7.6.0",
+    "eslint": "7.7.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.6",
-    "jest": "26.4.0",
+    "jest": "26.4.2",
     "react-dom": "16.8.6",
     "react-test-renderer": "16.8.6",
     "webpack": "4.44.1",
