@@ -1,6 +1,6 @@
 {
   "name": "@coxy/react-validator",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "🚀 Simple validation form for React",
   "main": "build/index.js",
   "repository": {
