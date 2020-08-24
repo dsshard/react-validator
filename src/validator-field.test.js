@@ -52,20 +52,35 @@ it('check context validator', () => {
 });
 
 it('check failed validation', () => {
-  const validator = React.createRef();
+  const validator1 = React.createRef();
   act(() => {
     render((
-      <ValidatorWrapper ref={validator}>
+      <ValidatorWrapper ref={validator1}>
         <ValidatorField rules={rules.email} value="test" />
       </ValidatorWrapper>
     ), container);
   });
 
-  const validateResult = validator.current.validate();
+  const validateResult1 = validator1.current.validate();
 
-  expect(validateResult.isValid).toBe(false);
-  expect(validateResult.message).toBe('Email is invalid');
-  expect(validateResult.errors.length).toBe(1);
+  expect(validateResult1.isValid).toBe(false);
+  expect(validateResult1.message).toBe('Email is invalid');
+  expect(validateResult1.errors.length).toBe(1);
+
+  const validator2 = React.createRef();
+  act(() => {
+    render((
+      <ValidatorWrapper ref={validator2}>
+        <ValidatorField rules={rules.email} value="" />
+      </ValidatorWrapper>
+    ), container);
+  });
+
+  const validateResult2 = validator2.current.validate();
+
+  expect(validateResult2.isValid).toBe(false);
+  expect(validateResult2.message).toBe('Email is required');
+  expect(validateResult2.errors.length).toBe(1);
 });
 
 it('check success validation', () => {

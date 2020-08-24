@@ -21,7 +21,7 @@ export default {
   }],
 
   email: [{
-    rule: (value) => value !== '' && value.length !== 0,
+    rule: (value) => !!value && value !== '' && value.length !== 0,
     message: 'Email is required',
   }, {
     rule: (value) => emailReg.test(String(value).toLowerCase()),

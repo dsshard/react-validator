@@ -1,3 +1,8 @@
+1.2.5 / 2020-08-23
+==================
+  * Fix email validation
+  * Add test for sort rules
+
 1.2.4 / 2020-08-13
 ==================
   * Fix rules order validation
