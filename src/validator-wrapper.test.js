@@ -148,10 +148,9 @@ it('check wrapper in wrapper', () => {
         </ValidatorWrapper>
       </ValidatorWrapper>
     ), container);
+    expect(validatorIn.current.validate().isValid).toBe(true);
+    expect(validatorOut.current.validate().isValid).toBe(false);
   });
-
-  expect(validatorIn.current.validate().isValid).toBe(true);
-  expect(validatorOut.current.validate().isValid).toBe(false);
 });
 
 it('check two validators', () => {
@@ -169,9 +168,6 @@ it('check two validators', () => {
       </>
     ), container);
   });
-
-  expect(typeof validatorFailed.current).toBe('object');
-  expect(typeof validatorSuccess.current).toBe('object');
 
   expect(validatorFailed.current.validate().isValid).toBe(false);
   expect(validatorSuccess.current.validate().isValid).toBe(true);

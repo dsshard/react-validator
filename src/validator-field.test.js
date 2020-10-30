@@ -1,6 +1,7 @@
 /* eslint-env jest */
 /* globals shallow */
 /* eslint react/jsx-filename-extension: [0] */
+
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
@@ -81,6 +82,44 @@ it('check failed validation', () => {
   expect(validateResult2.isValid).toBe(false);
   expect(validateResult2.message).toBe('Email is required');
   expect(validateResult2.errors.length).toBe(1);
+});
+
+jest.useFakeTimers();
+
+it('check state change and hide field', () => {
+  const validator1 = React.createRef();
+  function Comp() {
+    const [st, setSt] = React.useState(true);
+
+    React.useEffect(() => {
+      setTimeout(() => {
+        act(() => {
+          setSt(false);
+        });
+      }, 100);
+    }, []);
+
+    return (
+      <ValidatorWrapper ref={validator1}>
+        <ValidatorField rules={rules.email} value="test" />
+        {st && (
+          <ValidatorField rules={rules.email} value="" />
+        )}
+      </ValidatorWrapper>
+    );
+  }
+
+  act(() => {
+    render(<Comp />, container);
+  });
+
+  jest.runAllTimers();
+
+  const validateResult1 = validator1.current.validate();
+
+  expect(validateResult1.isValid).toBe(false);
+  expect(validateResult1.message).toBe('Email is invalid');
+  expect(validateResult1.errors.length).toBe(1);
 });
 
 it('check success validation', () => {

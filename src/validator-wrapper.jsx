@@ -5,9 +5,7 @@ import Context from './context';
 import Validator from './validator';
 
 class ValidatorWrapper extends Component {
-  UNSAFE_componentWillMount() {
-    this.fields = [];
-  }
+  fields = [];
 
   componentWillUnmount() {
     this.fields = [];
