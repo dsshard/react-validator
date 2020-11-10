@@ -32,6 +32,7 @@ export class Field {
         isValid = instance.rule(value);
         if (!isValid) {
           ({ message } = instance);
+          if (typeof message === 'function') message = message(value);
         }
       }
     });

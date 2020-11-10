@@ -159,3 +159,29 @@ it('check success validation fot child function', () => {
   expect(validateResult.isValid).toBe(true);
   expect(validateResult.message).toBe('');
 });
+
+it('check custom rule message function', () => {
+  const validator = React.createRef();
+  const rule = [{
+    rule: (value) => value !== 'test',
+    message: (value) => `test message ${value}`,
+  }];
+  act(() => {
+    render((
+      <ValidatorWrapper ref={validator}>
+        <ValidatorField rules={rule} value="test">
+          {({ isValid, message }) => (
+            <>
+              {!isValid && <div>{message}</div>}
+            </>
+          )}
+        </ValidatorField>
+      </ValidatorWrapper>
+    ), container);
+  });
+
+  const validateResult = validator.current.validate();
+
+  expect(validateResult.isValid).toBe(false);
+  expect(validateResult.message).toBe('test message test');
+});

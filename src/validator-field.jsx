@@ -54,7 +54,7 @@ ValidationFieldWrapper.propTypes = {
     PropTypes.func,
   ]),
   rules: PropTypes.arrayOf(PropTypes.shape({
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     rule: PropTypes.func,
   })),
 

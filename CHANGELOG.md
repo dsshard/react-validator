@@ -1,3 +1,9 @@
+1.3.0 / 2020-11-10
+==================
+  * Update dependencies
+  * "message" can be a function
+
+  
 1.2.6 / 2020-08-23
 ==================
   * Update dependencies
