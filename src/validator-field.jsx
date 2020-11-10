@@ -13,7 +13,7 @@ class ValidationFieldWrapper extends Component {
     this.props.registerField(this);
   }
 
-  validate = () => {
+  validate() {
     const field = new Field({
       rules: this.props.rules,
       required: this.props.required,
