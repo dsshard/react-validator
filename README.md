@@ -122,6 +122,16 @@ This component has a default set of rules that you can use right away:
  id           | null            | no               | ID for get field  
 
 &nbsp;
+# React api useValidator
+
+```javascript
+
+const [isValid, { errors }] = useValidator('test value', rules.email)
+console.log(isValid, errors) // false
+
+```
+
+&nbsp;
 # Api for inline validation
 
 #### Validator constructor parameters
