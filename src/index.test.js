@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 /* eslint-env jest */
 
 import ValidatorWrapper, { ValidatorField, rules } from './index';

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 /* eslint-env jest */
 /* eslint react/jsx-filename-extension: [0] */
 
