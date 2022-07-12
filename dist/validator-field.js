@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValidatorField = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const context_1 = require("./context");
 const validator_1 = require("./validator");
@@ -27,8 +28,6 @@ class ValidationFieldWrapper extends react_1.Component {
     }
 }
 function ValidatorField(props) {
-    return (<context_1.Context.Consumer>
-      {(data) => (<ValidationFieldWrapper {...props} registerField={data.registerField} unregisterField={data.unregisterField}/>)}
-    </context_1.Context.Consumer>);
+    return ((0, jsx_runtime_1.jsx)(context_1.Context.Consumer, { children: (data) => ((0, jsx_runtime_1.jsx)(ValidationFieldWrapper, Object.assign({}, props, { registerField: data.registerField, unregisterField: data.unregisterField }))) }));
 }
 exports.ValidatorField = ValidatorField;

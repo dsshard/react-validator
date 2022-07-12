@@ -26,7 +26,7 @@
     "strict": false,
     "isolatedModules": true,
     "moduleResolution": "node",
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
   "include": [
     "src",

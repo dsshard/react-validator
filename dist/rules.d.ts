@@ -1,6 +1,7 @@
-declare type Fn = (value: any) => string;
+import { Value } from './validator-field';
+declare type Fn = (value: Value) => string;
 export interface RuleInstance {
-    rule: (value: any) => boolean;
+    rule: (value: Value) => boolean;
     message: string | Fn;
 }
 export declare type ValidatorRules = RuleInstance[];
