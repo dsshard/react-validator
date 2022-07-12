@@ -24,7 +24,7 @@ See more examples [here](example/example.jsx)
 
 ```jsx
 import React, { useState } from 'react';
-import ValidatorWrapper, { rules, ValidatorField } from '@coxy/react-validator';
+import { ValidatorWrapper, rules, ValidatorField } from '@coxy/react-validator';
 
 const validator = React.createRef();
 
@@ -105,21 +105,20 @@ This component has a default set of rules that you can use right away:
 
 #### ValidatorWrapper props
 
- **name**         | **default** | **required** | **description**                                        
-------------------|-------------|--------------|--------------------------------------------------------
- ref              | null        | no           | React\.ref or useRef                                   
- stopAtFirstError | false       | no           | The validator will stop checking after the first error       
-
+| **name**         | **default** | **required** | **description**                                        |
+|------------------|-------------|--------------|--------------------------------------------------------|
+| ref              | null        | no           | React\.ref or useRef                                   |
+| stopAtFirstError | false       | no           | The validator will stop checking after the first error |
 
 &nbsp;
 #### ValidatorField props
 
- ****name**** | ****default**** | ****required**** | **description**               
---------------|-----------------|------------------|-------------------------------
- value        | undefined       | yes              | Value for validation          
- rules        | \[\]            | yes              | Array of rules for validation 
- required     | true            | no               | The field will be required  
- id           | null            | no               | ID for get field  
+| ****name**** | ****default**** | ****required**** | **description**               |
+|--------------|-----------------|------------------|-------------------------------|
+| value        | undefined       | yes              | Value for validation          |
+| rules        | \[\]            | yes              | Array of rules for validation |
+| required     | true            | no               | The field will be required    |
+| id           | null            | no               | ID for get field              |
 
 &nbsp;
 # React api useValidator
@@ -136,9 +135,10 @@ console.log(isValid, errors) // false
 
 #### Validator constructor parameters
 
- **name**         | **default** | **required** | **description**                                        
-------------------|-------------|--------------|--------------------------------------------------------                                   
- stopAtFirstError | false       | no           | The validator will stop checking after the first error       
+| **name**         | **default** | **required** | **description**                                        |
+|------------------|-------------|--------------|--------------------------------------------------------|
+| stopAtFirstError | false       | no           | The validator will stop checking after the first error |
+
 &nbsp;
 #### Validator.addField()
 

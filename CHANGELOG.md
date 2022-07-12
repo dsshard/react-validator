@@ -1,3 +1,9 @@
+2.0.1 / 2022-06-12
+==================
+* Typescript version
+* Update dependencies
+
+
 1.3.0 / 2020-11-10
 ==================
   * Update dependencies
