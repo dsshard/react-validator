@@ -1,0 +1,8 @@
+language: node_js
+node_js: node
+cache: npm
+script:
+  - npm test
+after_success:
+  - npm run coverage
+  - coveralls < coverage/lcov.info

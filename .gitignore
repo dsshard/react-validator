@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+.idea
+.env
+coverage
+build
+example/dist
+tsconfig.build.tsbuildinfo
+dist/*test.js
+dist/*test.d.ts
