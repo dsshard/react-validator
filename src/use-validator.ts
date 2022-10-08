@@ -8,3 +8,4 @@ export function useValidator (value: Value, rules: ValidatorRules): [boolean, Pi
   const { isValid, ...validateObject } = validator.validate()
   return [isValid, validateObject]
 }
+

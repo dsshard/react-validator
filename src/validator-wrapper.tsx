@@ -1,4 +1,3 @@
-/* eslint react/sort-comp: [0], camelcase: [0] */
 import { Component, ReactNode, RefObject } from 'react'
 
 import { Context } from './context'
@@ -11,7 +10,7 @@ interface ComponentProps {
 }
 
 export class ValidatorWrapper extends Component<ComponentProps> {
-  fields = [];
+  fields = []
 
   constructor (props, ctx) {
     super(props, ctx)

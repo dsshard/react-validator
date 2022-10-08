@@ -6,7 +6,7 @@ import { ValidatorWrapper, rules, ValidatorField, Validator } from '../dist/inde
 
 function App () {
   const [email, setEmail] = useState('')
-  const jsxValidator = createRef()
+  const jsxValidator = createRef<ValidatorWrapper>()
 
   function handleValidateEmail () {
     const { isValid, message, errors } = jsxValidator.current.validate()

@@ -5,14 +5,15 @@ export interface FieldParams {
   value: Value
   rules: ValidatorRules,
   required?: boolean
-  id?: string | number
+  id?: string|number
 }
 
 export class Field {
-  private rules: ValidatorRules;
-  private required: boolean;
-  private value: Value;
-  public id: string | number;
+  private rules: ValidatorRules
+  private required: boolean
+  private value: Value
+  public id: string|number
+
   constructor ({
     rules,
     required,
@@ -61,8 +62,8 @@ export interface ValidatorParams {
 }
 
 export class Validator {
-  private fields: Field[];
-  private params: ValidatorParams;
+  private fields: Field[]
+  private params: ValidatorParams
 
   constructor (params?: ValidatorParams) {
     this.params = params || null

@@ -20,7 +20,7 @@ Need react **>=16.3**
 
 # Example
 
-See more examples [here](example/example.jsx)
+See more examples [here](example/example.tsx)
 
 ```jsx
 import React, { useState } from 'react';
@@ -68,7 +68,7 @@ export default () => {
 };
 ```
 
-See more examples [here](example/example.jsx)
+See more examples [here](example/example.tsx)
 &nbsp;
 # Rules
 
