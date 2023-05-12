@@ -9,6 +9,9 @@ class ValidatorWrapper extends react_1.Component {
     constructor(props, ctx) {
         super(props, ctx);
         this.fields = [];
+        this.state = {
+            customErrors: [],
+        };
         this.registerField = this.registerField.bind(this);
         this.unregisterField = this.unregisterField.bind(this);
     }
@@ -28,6 +31,14 @@ class ValidatorWrapper extends react_1.Component {
     getField(id) {
         return this.fields.find((field) => field.props.id === id) || null;
     }
+    setCustomError(customError) {
+        this.setState({
+            customErrors: [...this.state.customErrors, customError],
+        });
+    }
+    clearCustomErrors() {
+        this.setState({ customErrors: [] });
+    }
     validate() {
         const validator = new validator_1.Validator({ stopAtFirstError: this.props.stopAtFirstError });
         this.fields.forEach((comp) => {
@@ -36,7 +47,11 @@ class ValidatorWrapper extends react_1.Component {
         return validator.validate();
     }
     render() {
-        return ((0, jsx_runtime_1.jsx)(context_1.Context.Provider, Object.assign({ value: { registerField: this.registerField, unregisterField: this.unregisterField } }, { children: this.props.children })));
+        return ((0, jsx_runtime_1.jsx)(context_1.Context.Provider, Object.assign({ value: {
+                customErrors: this.state.customErrors,
+                registerField: this.registerField,
+                unregisterField: this.unregisterField,
+            } }, { children: this.props.children })));
     }
 }
 exports.ValidatorWrapper = ValidatorWrapper;

@@ -25,7 +25,7 @@ afterEach(() => {
 jest.useFakeTimers()
 
 it('check state change and hide field', () => {
-  function Comp () {
+  function Comp() {
     const [value, setValue] = useState(false)
     const [isValid, validateObject] = useValidator(value, rules.bool)
 
@@ -39,8 +39,8 @@ it('check state change and hide field', () => {
 
     return (
       <>
-        <span data-testid="test1">{isValid ? 'true' : 'false'}</span>
-        <span data-testid="test2">{validateObject.message || 'true'}</span>
+        <span data-testid='test1'>{isValid ? 'true' : 'false'}</span>
+        <span data-testid='test2'>{validateObject.message || 'true'}</span>
       </>
     )
   }

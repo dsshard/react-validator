@@ -1,10 +1,5 @@
-import { Value } from './validator-field';
-declare type Fn = (value: Value) => string;
-export interface RuleInstance {
-    rule: (value: Value) => boolean;
-    message: string | Fn;
-}
-export declare type ValidatorRules = RuleInstance[];
+import { ValidatorRule } from './types';
+export declare type ValidatorRules = ValidatorRule[];
 export declare const rules: {
     notEmpty: {
         rule: (value: any) => boolean;
@@ -35,4 +30,3 @@ export declare const rules: {
         message: string;
     }[];
 };
-export {};

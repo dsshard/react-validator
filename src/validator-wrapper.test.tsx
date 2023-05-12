@@ -15,7 +15,7 @@ it('render without child', () => {
 
 it('check wrapper validator', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
       <ValidatorField rules={[]} />
       <ValidatorField rules={[]} />
@@ -23,8 +23,8 @@ it('check wrapper validator', () => {
       <ValidatorField rules={[]} />
       <ValidatorField rules={[]} />
       <ValidatorField rules={[]} />
-    </ValidatorWrapper>
-  ))
+    </ValidatorWrapper>,
+  )
 
   expect(typeof validator.current).toBe('object')
   expect(typeof validator.current.validate).toBe('function')
@@ -32,12 +32,12 @@ it('check wrapper validator', () => {
 
 it('check getField validator', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={[]} id="test" />
-      <ValidatorField rules={[]} id="test-fields" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={[]} id='test' />
+      <ValidatorField rules={[]} id='test-fields' />
+    </ValidatorWrapper>,
+  )
   expect(typeof validator.current.getField).toBe('function')
   const field = validator.current.getField('test')
 
@@ -50,11 +50,11 @@ it('check getField validator', () => {
 
 it('check getField undefined field', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={[]} id="test-empty-field" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={[]} id='test-empty-field' />
+    </ValidatorWrapper>,
+  )
 
   const field = validator.current.getField('8')
   expect(field).toBe(null)
@@ -62,13 +62,13 @@ it('check getField undefined field', () => {
 
 it('check stopAtFirstError validator', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator} stopAtFirstError>
-      <ValidatorField rules={[]} value="test" />
-      <ValidatorField rules={rules.email} value="test" />
-      <ValidatorField rules={rules.password} value="" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={[]} value='test' />
+      <ValidatorField rules={rules.email} value='test' />
+      <ValidatorField rules={rules.password} value='' />
+    </ValidatorWrapper>,
+  )
   const fieldValidate = validator.current.validate()
   expect(fieldValidate.isValid).toBe(false)
   expect(fieldValidate.message).toBe('Email is invalid')
@@ -77,11 +77,11 @@ it('check stopAtFirstError validator', () => {
 
 it('check unregisterField, registerField', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={[]} id="test-register-field" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={[]} id='test-register-field' />
+    </ValidatorWrapper>,
+  )
 
   expect(typeof validator.current.registerField).toBe('function')
   expect(typeof validator.current.unregisterField).toBe('function')
@@ -92,10 +92,10 @@ it('check filed in field', () => {
   render(
     <ValidatorWrapper ref={validator}>
       <ValidatorField rules={[]}>
-        <ValidatorField rules={[]} id="check-validate-field-1" />
-        <ValidatorField rules={[]} id="check-validate-field-2" />
+        <ValidatorField rules={[]} id='check-validate-field-1' />
+        <ValidatorField rules={[]} id='check-validate-field-2' />
       </ValidatorField>
-    </ValidatorWrapper>
+    </ValidatorWrapper>,
   )
 
   expect(typeof validator.current).toBe('object')
@@ -107,14 +107,14 @@ it('check filed in field', () => {
 it('check wrapper in wrapper', () => {
   const validatorOut = createRef<ValidatorWrapper>()
   const validatorIn = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validatorOut}>
-      <ValidatorField rules={rules.email} value="" />
+      <ValidatorField rules={rules.email} value='' />
       <ValidatorWrapper ref={validatorIn}>
-        <ValidatorField rules={rules.password} value="successpasswword" />
+        <ValidatorField rules={rules.password} value='successpasswword' />
       </ValidatorWrapper>
-    </ValidatorWrapper>
-  ))
+    </ValidatorWrapper>,
+  )
   expect(validatorIn.current.validate().isValid).toBe(true)
   expect(validatorOut.current.validate().isValid).toBe(false)
 })
@@ -122,16 +122,16 @@ it('check wrapper in wrapper', () => {
 it('check two validators', () => {
   const validatorSuccess = createRef<ValidatorWrapper>()
   const validatorFailed = createRef<ValidatorWrapper>()
-  render((
+  render(
     <>
       <ValidatorWrapper ref={validatorSuccess}>
-        <ValidatorField rules={rules.password} value="successpasswword" />
+        <ValidatorField rules={rules.password} value='successpasswword' />
       </ValidatorWrapper>
       <ValidatorWrapper ref={validatorFailed}>
-        <ValidatorField rules={rules.email} value="" />
+        <ValidatorField rules={rules.email} value='' />
       </ValidatorWrapper>
-    </>
-  ))
+    </>,
+  )
 
   expect(validatorFailed.current.validate().isValid).toBe(false)
   expect(validatorSuccess.current.validate().isValid).toBe(true)

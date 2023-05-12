@@ -1,11 +1,4 @@
-import { Validity, Value } from './validator-field';
-import { ValidatorRules } from './rules';
-export interface FieldParams {
-    value: Value;
-    rules: ValidatorRules;
-    required?: boolean;
-    id?: string | number;
-}
+import { FieldParams, Validity } from './types';
 export declare class Field {
     private rules;
     private required;

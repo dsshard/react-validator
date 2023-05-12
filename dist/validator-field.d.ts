@@ -1,16 +1,7 @@
 import { ReactNode } from 'react';
+import { Validity } from 'types';
 import { ValidatorRules } from './rules';
 export declare type Value = any;
-export interface ErrorMessage {
-    message: string;
-    isValid: boolean;
-}
-export interface Validity {
-    message: string;
-    isValid: boolean;
-    errors?: ErrorMessage[];
-    id?: string | number;
-}
 declare type Fn = (validity: Validity, value: Value) => ReactNode;
 interface Props {
     rules?: ValidatorRules;
@@ -20,6 +11,7 @@ interface Props {
     children?: ReactNode | Fn;
     unregisterField: (val: any) => void;
     registerField: (val: any) => void;
+    customErrors: Array<Validity>;
 }
-export declare function ValidatorField(props: Omit<Props, 'registerField' | 'unregisterField'>): JSX.Element;
+export declare function ValidatorField(props: Omit<Props, 'registerField' | 'unregisterField' | 'customErrors'>): JSX.Element;
 export {};

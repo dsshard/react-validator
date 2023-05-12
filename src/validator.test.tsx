@@ -12,7 +12,7 @@ it('check normal add and remove fields', () => {
   const fieldPassword = validator.addField({
     rules: rules.password,
     value: '',
-    id: 'for-remove'
+    id: 'for-remove',
   })
 
   expect(typeof fieldPassword).toBe('object')

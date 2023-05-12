@@ -14,20 +14,20 @@ it('render without wrapper', () => {
 })
 
 it('normal render', () => {
-  render((
+  render(
     <ValidatorWrapper>
-      <ValidatorField rules={[]} value="" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={[]} value='' />
+    </ValidatorWrapper>,
+  )
 })
 
 it('check context validator', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
       <ValidatorField rules={[]} />
-    </ValidatorWrapper>
-  ))
+    </ValidatorWrapper>,
+  )
 
   const validateResult = validator.current.validate()
 
@@ -39,16 +39,16 @@ it('check failed validation', () => {
   const validator1 = createRef<ValidatorWrapper>()
   const validator2 = createRef<ValidatorWrapper>()
 
-  render((
+  render(
     <>
       <ValidatorWrapper ref={validator1}>
-        <ValidatorField rules={rules.email} value="test" />
+        <ValidatorField rules={rules.email} value='test' />
       </ValidatorWrapper>
       <ValidatorWrapper ref={validator2}>
-        <ValidatorField rules={rules.email} value="" />
+        <ValidatorField rules={rules.email} value='' />
       </ValidatorWrapper>
-    </>
-  ))
+    </>,
+  )
 
   act(() => {
     const validateResult1 = validator1.current.validate()
@@ -70,7 +70,7 @@ jest.useFakeTimers()
 it('check state change and hide field', () => {
   const validator1 = createRef<ValidatorWrapper>()
 
-  function Comp () {
+  function Comp() {
     const [st, setSt] = useState(true)
 
     useEffect(() => {
@@ -83,10 +83,8 @@ it('check state change and hide field', () => {
 
     return (
       <ValidatorWrapper ref={validator1}>
-        <ValidatorField rules={rules.email} value="test" />
-        {st && (
-          <ValidatorField rules={rules.email} value="" />
-        )}
+        <ValidatorField rules={rules.email} value='test' />
+        {st && <ValidatorField rules={rules.email} value='' />}
       </ValidatorWrapper>
     )
   }
@@ -104,11 +102,11 @@ it('check state change and hide field', () => {
 
 it('check success validation', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={rules.email} value="email@email.com" />
-    </ValidatorWrapper>
-  ))
+      <ValidatorField rules={rules.email} value='email@email.com' />
+    </ValidatorWrapper>,
+  )
 
   const validateResult = validator.current.validate()
 
@@ -118,17 +116,13 @@ it('check success validation', () => {
 
 it('check success validation fot child function', () => {
   const validator = createRef<ValidatorWrapper>()
-  render((
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={rules.email} value="email@email.com">
-        {({ isValid, message }) => (
-          <>
-            {!isValid && <div>{message}</div>}
-          </>
-        )}
+      <ValidatorField rules={rules.email} value='email@email.com'>
+        {({ isValid, message }) => <>{!isValid && <div>{message}</div>}</>}
       </ValidatorField>
-    </ValidatorWrapper>
-  ))
+    </ValidatorWrapper>,
+  )
 
   const validateResult = validator.current.validate()
 
@@ -138,21 +132,19 @@ it('check success validation fot child function', () => {
 
 it('check custom rule message function', () => {
   const validator = createRef<ValidatorWrapper>()
-  const rule = [{
-    rule: (value) => value !== 'test',
-    message: (value) => `test message ${value}`
-  }]
-  render((
+  const rule = [
+    {
+      rule: (value) => value !== 'test',
+      message: (value) => `test message ${value}`,
+    },
+  ]
+  render(
     <ValidatorWrapper ref={validator}>
-      <ValidatorField rules={rule} value="test">
-        {({ isValid, message }) => (
-          <>
-            {!isValid && <div>{message}</div>}
-          </>
-        )}
+      <ValidatorField rules={rule} value='test'>
+        {({ isValid, message }) => <>{!isValid && <div>{message}</div>}</>}
       </ValidatorField>
-    </ValidatorWrapper>
-  ))
+    </ValidatorWrapper>,
+  )
 
   const validateResult = validator.current.validate()
 
